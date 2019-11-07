@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lyric_Maker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyric Book." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m13-WJ-WiH">
+                                <rect key="frame" x="16" y="35" width="343" height="37"/>
+                                <rect key="contentStretch" x="0.10000000000000001" y="0.0" width="1" height="1"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="27"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Song" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFO-JL-Ftq">
+                                <rect key="frame" x="16" y="123" width="343" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMy-Bc-dIi">
+                                <rect key="frame" x="172" y="174" width="30" height="30"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pcw-P2-WIs"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-jm-aSG">
+                                <rect key="frame" x="16" y="81" width="343" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="3vN-2O-n17"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="nnc-SH-9wa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gNt-CQ-uBc">
+                                <rect key="frame" x="0.0" y="223" width="375" height="444"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="c1f-D2-3Op">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="453"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <prototypes>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="Bcx-Ww-2o1">
+                                            <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bcx-Ww-2o1" id="9d1-3k-nBn">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableViewCellContentView>
+                                        </tableViewCell>
+                                    </prototypes>
+                                </tableView>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gNt-CQ-uBc" firstAttribute="top" secondItem="lMy-Bc-dIi" secondAttribute="bottom" constant="19" id="16S-92-QPl"/>
+                            <constraint firstItem="ZFO-JL-Ftq" firstAttribute="top" secondItem="3Kc-jm-aSG" secondAttribute="bottom" constant="8" id="2zd-61-grI"/>
+                            <constraint firstItem="m13-WJ-WiH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="3oz-NH-nu7"/>
+                            <constraint firstItem="lMy-Bc-dIi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="172" id="BdJ-eB-K7C"/>
+                            <constraint firstItem="gNt-CQ-uBc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Gnj-82-wNO"/>
+                            <constraint firstItem="3Kc-jm-aSG" firstAttribute="top" secondItem="m13-WJ-WiH" secondAttribute="bottom" constant="9" id="H21-FD-EAb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Kc-jm-aSG" secondAttribute="trailing" constant="16" id="N0W-X4-QO2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lMy-Bc-dIi" secondAttribute="trailing" constant="173" id="U5n-Kh-gXr"/>
+                            <constraint firstItem="m13-WJ-WiH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Wsn-d5-0B1"/>
+                            <constraint firstItem="ZFO-JL-Ftq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="aAB-ey-ZQZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZFO-JL-Ftq" secondAttribute="trailing" constant="16" id="bYy-Lc-hmx"/>
+                            <constraint firstItem="lMy-Bc-dIi" firstAttribute="top" secondItem="ZFO-JL-Ftq" secondAttribute="bottom" constant="17" id="fEN-5d-yTH"/>
+                            <constraint firstItem="gNt-CQ-uBc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fdH-OW-Jct"/>
+                            <constraint firstItem="gNt-CQ-uBc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mkr-Hy-GHe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m13-WJ-WiH" secondAttribute="trailing" constant="16" id="mm5-UY-VFp"/>
+                            <constraint firstItem="3Kc-jm-aSG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="vcM-zC-IlZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="artistField" destination="3Kc-jm-aSG" id="JsG-s0-Klp"/>
+                        <outlet property="btn" destination="lMy-Bc-dIi" id="Jna-aY-1c9"/>
+                        <outlet property="songField" destination="ZFO-JL-Ftq" id="rfF-ow-oaC"/>
+                        <outlet property="tableView" destination="gNt-CQ-uBc" id="6kS-Or-PHq"/>
+                        <segue destination="qKk-IF-sWh" kind="show" identifier="toSongView" id="GjF-Jl-DBw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--Songs View Controller-->
+        <scene sceneID="Q2E-ZG-0wJ">
+            <objects>
+                <viewController id="qKk-IF-sWh" customClass="SongsViewController" customModule="Lyric_Maker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ho4-Sr-aFz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpK-hm-dZS">
+                                <rect key="frame" x="10" y="40" width="355" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-Ee-H3k">
+                                <rect key="frame" x="16" y="96" width="343" height="531"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CWk-Ee-H3k" firstAttribute="leading" secondItem="Yqw-bd-kwA" secondAttribute="leading" constant="16" id="4Tk-Wx-ZWl"/>
+                            <constraint firstItem="Yqw-bd-kwA" firstAttribute="trailing" secondItem="CWk-Ee-H3k" secondAttribute="trailing" constant="16" id="H9i-2u-cpQ"/>
+                            <constraint firstItem="Yqw-bd-kwA" firstAttribute="trailing" secondItem="tpK-hm-dZS" secondAttribute="trailing" constant="10" id="IZJ-1U-TAv"/>
+                            <constraint firstItem="tpK-hm-dZS" firstAttribute="leading" secondItem="Yqw-bd-kwA" secondAttribute="leading" constant="10" id="iwA-dz-xzz"/>
+                            <constraint firstItem="CWk-Ee-H3k" firstAttribute="top" secondItem="tpK-hm-dZS" secondAttribute="bottom" constant="27" id="k0K-HS-7cm"/>
+                            <constraint firstItem="tpK-hm-dZS" firstAttribute="top" secondItem="Yqw-bd-kwA" secondAttribute="top" constant="40" id="kEd-mI-g9V"/>
+                            <constraint firstItem="Yqw-bd-kwA" firstAttribute="bottom" secondItem="CWk-Ee-H3k" secondAttribute="bottom" constant="20" id="wB6-s3-s74"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yqw-bd-kwA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="owa-RQ-Zv6"/>
+                    <connections>
+                        <outlet property="songLabel" destination="CWk-Ee-H3k" id="Qe7-MY-Dyo"/>
+                        <outlet property="songNameLabel" destination="tpK-hm-dZS" id="Scy-0f-KK1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4d-Wr-Wyu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832.79999999999995" y="136.28185907046478"/>
+        </scene>
+    </scenes>
+</document>
