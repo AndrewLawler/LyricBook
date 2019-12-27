@@ -15,6 +15,8 @@
 		64771F2D2374341C0000BB69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64771F2C2374341C0000BB69 /* Assets.xcassets */; };
 		64771F302374341C0000BB69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64771F2E2374341C0000BB69 /* LaunchScreen.storyboard */; };
 		64771F38237450010000BB69 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64771F37237450010000BB69 /* SongsViewController.swift */; };
+		647A5B1D23B6645D00A7602C /* Song+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A5B1B23B6645D00A7602C /* Song+CoreDataClass.swift */; };
+		647A5B1E23B6645D00A7602C /* Song+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647A5B1C23B6645D00A7602C /* Song+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		64771F2F2374341C0000BB69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64771F312374341C0000BB69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64771F37237450010000BB69 /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
+		647A5B1B23B6645D00A7602C /* Song+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataClass.swift"; sourceTree = "<group>"; };
+		647A5B1C23B6645D00A7602C /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,8 @@
 		64771F142374341B0000BB69 = {
 			isa = PBXGroup;
 			children = (
+				647A5B1B23B6645D00A7602C /* Song+CoreDataClass.swift */,
+				647A5B1C23B6645D00A7602C /* Song+CoreDataProperties.swift */,
 				64771F1F2374341B0000BB69 /* Lyric Maker */,
 				64771F1E2374341B0000BB69 /* Products */,
 			);
@@ -146,6 +152,8 @@
 			files = (
 				64771F252374341B0000BB69 /* ViewController.swift in Sources */,
 				64771F212374341B0000BB69 /* AppDelegate.swift in Sources */,
+				647A5B1E23B6645D00A7602C /* Song+CoreDataProperties.swift in Sources */,
+				647A5B1D23B6645D00A7602C /* Song+CoreDataClass.swift in Sources */,
 				64771F38237450010000BB69 /* SongsViewController.swift in Sources */,
 				64771F2B2374341B0000BB69 /* Lyric_Maker.xcdatamodeld in Sources */,
 				64771F232374341B0000BB69 /* SceneDelegate.swift in Sources */,

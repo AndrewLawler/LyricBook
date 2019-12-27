@@ -8,47 +8,49 @@
 
 import UIKit
 
+struct JSONSong: Decodable {
+    let lyrics: String
+}
+
 class SongsViewController: UIViewController {
     
-    @IBOutlet var songLabel: UILabel!
     @IBOutlet var songNameLabel: UILabel!
+    @IBOutlet weak var songLabel: UITextView!
     
-    var song:URL?
+    var band:String?
     var songName:String?
+    var songTitle:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        songLabel.numberOfLines = 0
-        songNameLabel.text = songName
-        makeRequest()
+        songNameLabel.text = songTitle
+        songLabel.isEditable = false
+        getSong()
     }
     
-    func makeRequest(){
-        let request = URLRequest(url: song!)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if response != nil {
-            if let data = data, var body = String(data: data, encoding: .utf8) {
-                var i = 0
-                while i<11 {
-                    let index = body.index(body.startIndex, offsetBy: 0)
-                    body.remove(at: index)
-                    i += 1
-                }
-                i = 0
-                while i<2 {
-                    let index = body.index(body.endIndex, offsetBy: -1)
-                    body.remove(at: index)
-                    i += 1
-                }
-                DispatchQueue.main.async { // Correct
-                    self.songLabel.text = body
-                }
+    func getSong(){
+        // get the string and create a URL, then start a session and start a dataTask to get the JSON data
+        let nameOfband = band!.replacingOccurrences(of: " ", with: "_")
+        let nameOfSong = songName!.replacingOccurrences(of: " ", with: "_")
+        if let url = URL(string: "https://api.lyrics.ovh/v1/\(nameOfband)/\(nameOfSong)") {
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data, response, err) in
+        guard let jsonData = data else {
+        return }
+        do{
+            // decode the JSON and populate an array
+            let decoder = JSONDecoder()
+            let shops = try decoder.decode(JSONSong.self, from: jsonData)
+            // populate internal array with the shops
+            DispatchQueue.main.async {
+                self.songLabel.text = shops.lyrics
             }
-          } else {
-            print(error ?? "Unknown error")
-          }
+        } catch let jsonErr {
+            print("Error decoding JSON", jsonErr)
         }
-        task.resume()
+        }.resume()
+        }
     }
+    
     
 }
