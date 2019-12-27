@@ -173,23 +173,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt
     indexPath: IndexPath) {
         if editingStyle == .delete {
-
-            // Delete the managed object at the given index path
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
-            songArtist.remove(at: indexPath.row)
-            songName.remove(at: indexPath.row)
-            print(indexPath.row)
-            print(songs)
-            context.delete(songs[indexPath.row])
-            // Commit the change
-            do
-            {
-            try context.save()
-            } catch {
-                print("changes failed")
-            }
-            
             tableView.beginUpdates()
             if songName.count > 0 || songArtist.count > 0 {
                 songName.remove(at: indexPath.row)
@@ -201,6 +186,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.isHidden = true
             }
             tableView.reloadData()
+            context.delete(songs[indexPath.row])
+            // Commit the change
+            do
+            {
+            try context.save()
+            } catch {
+                print("changes failed")
+            }
         }
     }
     
