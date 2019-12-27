@@ -86,8 +86,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             for data in result as! [NSManagedObject] {
                 songArtist.append(data.value(forKey: "artist") as! String)
                 songName.append(data.value(forKey: "name") as! String)
+                songs.append(data)
           }
-            
         } catch {
             print("Failed")
         }
@@ -191,8 +191,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             tableView.beginUpdates()
-            songName.remove(at: indexPath.row)
-            songArtist.remove(at: indexPath.row)
+            if songName.count > 0 || songArtist.count > 0 {
+                songName.remove(at: indexPath.row)
+                songArtist.remove(at: indexPath.row)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
             if songName.count==0 {
