@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,7 +56,6 @@
 				9916D176BE80AE8E28BFD99A /* Pods-Lyric Maker.debug.xcconfig */,
 				B1225B4D06BF5DC037CB63F7 /* Pods-Lyric Maker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -66,6 +65,15 @@
 				E36EA865688CBCDC9DB93783 /* Pods_Lyric_Maker.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6432A9B223B7955600EEA126 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				64771F242374341B0000BB69 /* ViewController.swift */,
+				64771F37237450010000BB69 /* SongsViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		64771F142374341B0000BB69 = {
@@ -91,15 +99,14 @@
 		64771F1F2374341B0000BB69 /* Lyric Maker */ = {
 			isa = PBXGroup;
 			children = (
+				6432A9B223B7955600EEA126 /* ViewControllers */,
 				64771F202374341B0000BB69 /* AppDelegate.swift */,
 				64771F222374341B0000BB69 /* SceneDelegate.swift */,
-				64771F242374341B0000BB69 /* ViewController.swift */,
 				64771F262374341B0000BB69 /* Main.storyboard */,
 				64771F2C2374341C0000BB69 /* Assets.xcassets */,
 				64771F2E2374341C0000BB69 /* LaunchScreen.storyboard */,
 				64771F312374341C0000BB69 /* Info.plist */,
 				64771F292374341B0000BB69 /* Lyric_Maker.xcdatamodeld */,
-				64771F37237450010000BB69 /* SongsViewController.swift */,
 			);
 			path = "Lyric Maker";
 			sourceTree = "<group>";

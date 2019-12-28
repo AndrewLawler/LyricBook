@@ -29,13 +29,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fixLabel()
         coreReload()
+        setDelegates()
+        setupUI()
+    }
+    
+    func setDelegates(){
         tableView.delegate = self
         tableView.dataSource = self
         artistField.delegate = self
         songField.delegate = self
-        button()
     }
     
     func clearCoreDataStore() {
@@ -56,8 +59,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 abort()
             }
         }
+        tableView.reloadData()
     }
-    
     
     func coreSave(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -95,7 +98,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func fixLabel(){
+    func setupUI(){
+        // title
         let firstText = "Lyric"
         let firstAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 34), NSAttributedString.Key.foregroundColor : UIColor.red]
         let attributedString = NSMutableAttributedString(string: firstText, attributes: firstAttributes as [NSAttributedString.Key : Any])
@@ -104,23 +108,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let secondString = NSMutableAttributedString(string: secondText, attributes: secondAttributes as [NSAttributedString.Key : Any])
         attributedString.append(secondString)
         lyricLabel.attributedText = attributedString
-    }
-    
-    func button(){
-        //artistField.layer.cornerRadius = 5
-        //artistField.layer.borderWidth = 1
-        //artistField.layer.borderColor = UIColor.white.cgColor
         
-        //songField.layer.cornerRadius = 5
-        //songField.layer.borderWidth = 1
-        //songField.layer.borderColor = UIColor.white.cgColor
+        // text fields
+        artistField.layer.borderColor = UIColor.red.cgColor
+        songField.layer.borderColor = UIColor.black.cgColor
         
+        // buttons
         btn.backgroundColor = .clear
         btn.layer.cornerRadius = 5
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.black.cgColor
         btn.tintColor = UIColor.red
-        
         btn2.backgroundColor = .clear
         btn2.layer.cornerRadius = 5
         btn2.layer.borderWidth = 1
@@ -128,6 +126,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         btn2.tintColor = UIColor.black
     }
     
+    // segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSongView" {
             let secondViewController = segue.destination as! SongsViewController
@@ -136,14 +135,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // clear button
     @IBAction func clearBtn(_ sender: Any) {
+        // clear all of the arrays and clear core data also
         songArtist = []
         songName = []
         clearCoreDataStore()
-        tableView.reloadData()
     }
     
     @IBAction func goBtn(_ sender: Any) {
+        // check if the input is invalid and then add into the table
         if artistField.text != "" && songField.text != "" {
             coreSave()
             let band = artistField.text

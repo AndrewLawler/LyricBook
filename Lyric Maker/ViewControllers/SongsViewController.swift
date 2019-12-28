@@ -8,22 +8,29 @@
 
 import UIKit
 
+// MARK: JSON Struct
+// struct to model the JSON that gets returned
 struct JSONSong: Decodable {
-    let lyrics: String
+    var lyrics:String?
 }
 
+// MARK: View Controller
 class SongsViewController: UIViewController {
     
+    let mainVc = ViewController()
+    
+    // Outlets
     @IBOutlet var songNameLabel: UILabel!
     @IBOutlet weak var songLabel: UITextView!
     
+    // Variables which get populated from the initial View Controller
     var band:String?
     var songName:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTitle()
         songLabel.isEditable = false
+        setupTitle()
         getSong()
     }
     
@@ -50,10 +57,14 @@ class SongsViewController: UIViewController {
         do{
             // decode the JSON and populate an array
             let decoder = JSONDecoder()
-            let shops = try decoder.decode(JSONSong.self, from: jsonData)
-            // populate internal array with the shops
+            var song = try decoder.decode(JSONSong.self, from: jsonData)
             DispatchQueue.main.async {
-                self.songLabel.text = shops.lyrics
+                if song.lyrics == nil {
+                    self.songLabel.text = "There are no lyrics for this song / This song does not exist"
+                }
+                else {
+                    self.songLabel.text = song.lyrics
+                }
             }
         } catch let jsonErr {
             print("Error decoding JSON", jsonErr)
