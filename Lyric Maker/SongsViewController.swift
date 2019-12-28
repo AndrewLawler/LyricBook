@@ -19,13 +19,23 @@ class SongsViewController: UIViewController {
     
     var band:String?
     var songName:String?
-    var songTitle:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        songNameLabel.text = songTitle
+        setupTitle()
         songLabel.isEditable = false
         getSong()
+    }
+    
+    func setupTitle(){
+        let artistText = "\(band!)"
+        let artistAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 20), NSAttributedString.Key.foregroundColor : UIColor.red]
+        let attributedString = NSMutableAttributedString(string: artistText, attributes: artistAttributes as [NSAttributedString.Key : Any])
+        let songText = " - \(songName!)"
+        let songAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 20), NSAttributedString.Key.foregroundColor : UIColor.black]
+        let songString = NSMutableAttributedString(string: songText, attributes: songAttributes as [NSAttributedString.Key : Any])
+        attributedString.append(songString)
+        songNameLabel.attributedText = attributedString
     }
     
     func getSong(){

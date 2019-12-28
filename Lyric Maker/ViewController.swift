@@ -25,9 +25,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet weak var lyricLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "LyricBook"
+        fixLabel()
         coreReload()
         tableView.delegate = self
         tableView.dataSource = self
@@ -93,24 +95,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func fixLabel(){
+        let firstText = "Lyric"
+        let firstAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 34), NSAttributedString.Key.foregroundColor : UIColor.red]
+        let attributedString = NSMutableAttributedString(string: firstText, attributes: firstAttributes as [NSAttributedString.Key : Any])
+        let secondText = "Book"
+        let secondAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 34), NSAttributedString.Key.foregroundColor : UIColor.black]
+        let secondString = NSMutableAttributedString(string: secondText, attributes: secondAttributes as [NSAttributedString.Key : Any])
+        attributedString.append(secondString)
+        lyricLabel.attributedText = attributedString
+    }
+    
     func button(){
-        artistField.layer.cornerRadius = 5
-        artistField.layer.borderWidth = 1
-        artistField.layer.borderColor = UIColor.orange.cgColor
+        //artistField.layer.cornerRadius = 5
+        //artistField.layer.borderWidth = 1
+        //artistField.layer.borderColor = UIColor.white.cgColor
         
-        songField.layer.cornerRadius = 5
-        songField.layer.borderWidth = 1
-        songField.layer.borderColor = UIColor.orange.cgColor
+        //songField.layer.cornerRadius = 5
+        //songField.layer.borderWidth = 1
+        //songField.layer.borderColor = UIColor.white.cgColor
         
         btn.backgroundColor = .clear
         btn.layer.cornerRadius = 5
         btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.orange.cgColor
+        btn.layer.borderColor = UIColor.black.cgColor
+        btn.tintColor = UIColor.red
         
         btn2.backgroundColor = .clear
         btn2.layer.cornerRadius = 5
         btn2.layer.borderWidth = 1
-        btn2.layer.borderColor = UIColor.orange.cgColor
+        btn2.layer.borderColor = UIColor.black.cgColor
+        btn2.tintColor = UIColor.black
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -118,7 +133,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let secondViewController = segue.destination as! SongsViewController
             secondViewController.songName = songName[currentCell]
             secondViewController.band = songArtist[currentCell]
-            secondViewController.songTitle = "\(songArtist[currentCell]) - \(songName[currentCell])"
         }
     }
     
@@ -161,7 +175,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "myCell")
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        cell.textLabel!.text = "\(songArtist[indexPath.row]) - \(songName[indexPath.row])"
+        
+        let artistText = "\(songArtist[indexPath.row]) "
+        let artistAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 15)]
+        let attributedString = NSMutableAttributedString(string: artistText, attributes: artistAttributes as [NSAttributedString.Key : Any])
+        
+        let hyphenText = "-"
+        let hyphenAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica", size: 15)]
+        let hyphenString = NSMutableAttributedString(string: hyphenText, attributes: hyphenAttributes as [NSAttributedString.Key : Any])
+        attributedString.append(hyphenString)
+        
+        let songText = " \(songName[indexPath.row])"
+        let songAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica", size: 15), NSAttributedString.Key.foregroundColor : UIColor.black]
+        let songString = NSMutableAttributedString(string: songText, attributes: songAttributes as [NSAttributedString.Key : Any])
+        attributedString.append(songString)
+        
+        cell.textLabel!.attributedText = attributedString
         return cell
     }
     
