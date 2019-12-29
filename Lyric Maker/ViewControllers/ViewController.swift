@@ -113,16 +113,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         artistField.layer.borderColor = UIColor.red.cgColor
         songField.layer.borderColor = UIColor.black.cgColor
         
-        // buttons
+        // button 1
         btn.backgroundColor = .clear
         btn.layer.cornerRadius = 5
         btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.black.cgColor
+        btn.layer.borderColor = UIColor.white.cgColor
+        btn.layer.backgroundColor = UIColor.black.cgColor
         btn.tintColor = UIColor.red
+        // button 2
         btn2.backgroundColor = .clear
         btn2.layer.cornerRadius = 5
         btn2.layer.borderWidth = 1
-        btn2.layer.borderColor = UIColor.black.cgColor
+        btn2.layer.borderColor = UIColor.white.cgColor
+        btn2.layer.backgroundColor = UIColor.systemRed.cgColor
         btn2.tintColor = UIColor.black
     }
     

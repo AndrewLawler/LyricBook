@@ -50,26 +50,25 @@ class SongsViewController: UIViewController {
         let nameOfband = band!.replacingOccurrences(of: " ", with: "_")
         let nameOfSong = songName!.replacingOccurrences(of: " ", with: "_")
         if let url = URL(string: "https://api.lyrics.ovh/v1/\(nameOfband)/\(nameOfSong)") {
-        let session = URLSession.shared
-        session.dataTask(with: url) { (data, response, err) in
-        guard let jsonData = data else {
-        return }
-        do{
-            // decode the JSON and populate an array
-            let decoder = JSONDecoder()
-            var song = try decoder.decode(JSONSong.self, from: jsonData)
-            DispatchQueue.main.async {
-                if song.lyrics == nil {
-                    self.songLabel.text = "There are no lyrics for this song / This song does not exist"
+            let session = URLSession.shared
+            session.dataTask(with: url) { (data, response, err) in
+            guard let jsonData = data else { return }
+            do {
+                // decode the JSON and populate an array
+                let decoder = JSONDecoder()
+                var song = try decoder.decode(JSONSong.self, from: jsonData)
+                DispatchQueue.main.async {
+                    if song.lyrics == nil {
+                        self.songLabel.text = "There are no lyrics for this song / This song does not exist"
+                    }
+                    else {
+                        self.songLabel.text = song.lyrics
+                    }
                 }
-                else {
-                    self.songLabel.text = song.lyrics
-                }
+            } catch let jsonErr {
+                print("Error decoding JSON", jsonErr)
             }
-        } catch let jsonErr {
-            print("Error decoding JSON", jsonErr)
-        }
-        }.resume()
+            }.resume()
         }
     }
     
