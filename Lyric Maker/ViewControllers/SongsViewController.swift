@@ -36,7 +36,7 @@ class SongsViewController: UIViewController {
     
     func setupTitle(){
         let artistText = "\(band!)"
-        let artistAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 20), NSAttributedString.Key.foregroundColor : UIColor.red]
+        let artistAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 20), NSAttributedString.Key.foregroundColor : UIColor.systemBlue]
         let attributedString = NSMutableAttributedString(string: artistText, attributes: artistAttributes as [NSAttributedString.Key : Any])
         let songText = " - \(songName!)"
         let songAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 20), NSAttributedString.Key.foregroundColor : UIColor.black]

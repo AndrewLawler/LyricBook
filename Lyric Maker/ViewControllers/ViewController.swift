@@ -100,14 +100,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func setupUI(){
         // title
-        let firstText = "Lyric"
-        let firstAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 34), NSAttributedString.Key.foregroundColor : UIColor.red]
-        let attributedString = NSMutableAttributedString(string: firstText, attributes: firstAttributes as [NSAttributedString.Key : Any])
-        let secondText = "Book"
-        let secondAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Bold", size: 34), NSAttributedString.Key.foregroundColor : UIColor.black]
-        let secondString = NSMutableAttributedString(string: secondText, attributes: secondAttributes as [NSAttributedString.Key : Any])
-        attributedString.append(secondString)
-        lyricLabel.attributedText = attributedString
+        lyricLabel.text = "LyricBook"
         
         // text fields
         artistField.layer.borderColor = UIColor.red.cgColor
@@ -116,17 +109,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // button 1
         btn.backgroundColor = .clear
         btn.layer.cornerRadius = 5
-        btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.white.cgColor
-        btn.layer.backgroundColor = UIColor.black.cgColor
-        btn.tintColor = UIColor.red
+        btn.layer.backgroundColor = UIColor.systemBlue.cgColor
+        
         // button 2
         btn2.backgroundColor = .clear
         btn2.layer.cornerRadius = 5
-        btn2.layer.borderWidth = 1
-        btn2.layer.borderColor = UIColor.white.cgColor
-        btn2.layer.backgroundColor = UIColor.systemRed.cgColor
-        btn2.tintColor = UIColor.black
+        btn2.layer.backgroundColor = UIColor.systemBlue.cgColor
     }
     
     // segue
